@@ -6,17 +6,17 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+
   return (
-    <>
-      <div>
-        <Navbar />
-      </div>
-      
-      <div>
+    <div className="flex h-screen">
+      <div className="flex-1  bg-bgSoft w-full">
         <SideBar />
+      </div>
+      <div className="flex-4 flex flex-col">
+        <Navbar />
         {children}
       </div>
-    </>
+    </div>
   );
 };
 
