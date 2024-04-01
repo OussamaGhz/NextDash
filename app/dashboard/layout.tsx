@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div className="flex-1 ">
         <SideBar />
       </div>
-      <div className="flex-4 flex flex-col">
+      <div className="flex-4 flex flex-col mx-8">
         <Navbar />
         {children}
       </div>
