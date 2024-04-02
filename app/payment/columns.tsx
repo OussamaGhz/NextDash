@@ -8,16 +8,13 @@ import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 // You can use a Zod schema here if you want.
 export type Payment = {
   id: string;
+  email: string;
   amount: number;
   status: "pending" | "processing" | "success" | "failed";
-  email: string;
+  date: string;
 };
 
 export const columns: ColumnDef<Payment>[] = [
-  {
-    accessorKey: "status",
-    header: "Status",
-  },
   {
     accessorKey: "email",
     header: ({ column }) => {
@@ -31,6 +28,14 @@ export const columns: ColumnDef<Payment>[] = [
         </Button>
       );
     },
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
+  },
+  {
+    accessorKey: "date",
+    header: "Date",
   },
   {
     accessorKey: "amount",
