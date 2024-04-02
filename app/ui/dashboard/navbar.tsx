@@ -41,7 +41,7 @@ const Navbar = () => {
                   id="search"
                   name="search"
                   type="search"
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm transition-all duration-500 ease-in-out"
+                  className="block w-3/4 h-7 pl-10 pr-3 py-2 text-bg border border-gray-300 rounded-full leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm transition-all duration-500 ease-in-out"
                   placeholder="Search"
                 />
               </div>

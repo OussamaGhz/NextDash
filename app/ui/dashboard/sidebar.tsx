@@ -85,18 +85,18 @@ const SideBar = () => {
     },
   ];
   return (
-    <div className="flex h-screen bg-bgSoft">
+    <div className="flex h-screen bg-bgSoft absolute max-w-full">
     {/* Sidebar */}
-    <div className={`w-64 space-y-6 px-2 py-7 absolute inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:relative md:translate-x-0 transition duration-200 ease-in-out mt-10 bg-inherit z-10`}>
+    <div className={`w-80 space-y-6 pl-2 py-7 absolute inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:relative md:translate-x-0 transition duration-200 ease-in-out mt-10 bg-inherit z-10`}>
       {/* Sidebar content */}
       <nav>
-        <ul className="py-5 px-10 w-full">
+        <ul className="py-5 w-full">
           {menuItems.map((menuItem) => (
             <li key={menuItem.title}>
-              <h3 className={`${isSidebarOpen ? "block" : "hidden"} md:block text-gray-500 text-sm uppercase tracking-wide font-semibold`}>
+              <h3 className={`${isSidebarOpen ? "block" : "hidden"} md:block text-gray-500 px-10 text-sm uppercase tracking-wide font-semibold`}>
                 {menuItem.title}
               </h3>
-              <ul className="px-4 flex flex-col gap-2 my-5">
+              <ul className=" flex flex-col gap-2 md:my-5 relative left-12 w-48">
                 {menuItem.list.map((item) => (
                   <li key={item.title} className="group">
                     <Link href={item.path} className="flex gap-3 w-full items-center text-white rounded-md p-2 group-hover:bg-blue-500 group-hover:text-white transition duration-200 ease-in-out transform group-hover:scale-105">
@@ -115,7 +115,7 @@ const SideBar = () => {
     </div>
 
     {/* Header Toggle Button */}
-    <div className="flex-1">
+    <div className="flex-1 block md:hidden">
       <div className="shadow px-4 py-4">
         <div className="flex items-center justify-between">
           <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-gray-500 focus:outline-none md:hidden">
