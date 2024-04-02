@@ -85,7 +85,7 @@ const SideBar = () => {
     },
   ];
   return (
-    <div className="flex h-screen bg-bgSoft absolute max-w-full">
+    <div className="flex h-screen bg-bgSoft absolute max-w-full rounded-3xl">
     {/* Sidebar */}
     <div className={`w-80 space-y-6 pl-2 py-7 absolute inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:relative md:translate-x-0 transition duration-200 ease-in-out mt-10 bg-inherit z-10`}>
       {/* Sidebar content */}

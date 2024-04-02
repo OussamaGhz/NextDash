@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="shadow-sm bg-bgSoft ">
+    <div className="shadow-sm bg-bgSoft rounded-lg">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between flex-row-reverse md:flex-row items-center py-3 md:space-x-10 transition-all duration-500 ease-in-out">
           {/* Hamburger Menu Button for small screens */}

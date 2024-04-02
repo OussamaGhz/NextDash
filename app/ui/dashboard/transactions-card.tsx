@@ -63,8 +63,8 @@ export default async function DemoPage() {
   ];
 
   return (
-    <div className="container mx-auto overflow--scroll bg-bgSoft">
-      <DataTable columns={columns} data={data} />
+    <div className="container mx-auto overflow--scroll bg-bgSoft rounded-lg p-2">
+      <DataTable columns={columns} data={data}/>
     </div>
   );
 }
