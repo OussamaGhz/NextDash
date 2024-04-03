@@ -3,7 +3,7 @@ import { FaceFrownIcon } from "@heroicons/react/24/solid";
 
 const Card = ({ index }: { index: number }) => {
   return (
-    <div className="bg-bgSoft p-4 min-h-[150px] rounded-lg shadow flex gap-8">
+    <div className="bg-bgSoft p-4 min-h-[150px] rounded-lg shadow flex gap-8 w-full">
       <div className="w-1/12">
       <FaceFrownIcon className=""/>
       </div>

@@ -7,12 +7,15 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
 
+
+  
+
   return (
-    <div className="flex h-screen ">
-      <div className="flex-1 h-screen">
+    <div className="flex">
+      <div className="flex-1 h-screen ">
         <SideBar />
       </div>
-      <div className="flex-4 flex flex-col mx-8">
+      <div className="flex-4 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
         <Navbar />
         {children}
       </div>

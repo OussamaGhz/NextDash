@@ -1,5 +1,6 @@
 import { Payment, columns } from "@/app/payment/columns";
 import { DataTable } from "@/app/payment/data-table";
+import TableContainer from "./table-container";
 
 export default async function DemoPage() {
   const fetch = [
@@ -70,8 +71,8 @@ export default async function DemoPage() {
   });
 
   return (
-    <div className="container mx-auto overflow--scroll bg-bgSoft rounded-lg p-2">
+    <TableContainer >
       <DataTable columns={columns} data={data} />
-    </div>
+    </TableContainer>
   );
 }

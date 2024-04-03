@@ -1,10 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import React, { useState } from "react";
 import {
   MdDashboard,
-  MdBuild,
   MdSupervisedUserCircle,
   MdShoppingBag,
   MdAttachMoney,
@@ -19,6 +17,7 @@ import {
 import { MenuSection } from "./MenuItems.server"; // Import server component
 
 import { XIcon, MenuIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
 const SideBar = () => {
   //
 
@@ -86,13 +85,18 @@ const SideBar = () => {
       ],
     },
   ];
+
+  const pathname = usePathname()
+
+
+ 
   return (
-    <div className="flex h-[1000px] bg-bgSoft absolute max-w-full rounded-3xl border-b-4">
+    <div className="  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] flex h-[1000px] bg-bgSoft absolute  rounded-3xl border-b-4 max-w-72">
       <div className={`w-80 space-y-6 pl-2 py-7 absolute inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition duration-200 ease-in-out mt-10 bg-inherit z-10`}>
         <nav>
           <ul className="py-5 w-full">
             {menuItems.map((section) => (
-              <MenuSection key={section.title} section={section} />
+              <MenuSection key={section.title} section={section} activePath={pathname}/>
             ))}
           </ul>
         </nav>

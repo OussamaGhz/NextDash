@@ -1,4 +1,4 @@
-"use client"
+
 import { UserData, columns } from "@/app/users/columns";
 import { UsersDataTable } from "@/app/users/data-table";
 
