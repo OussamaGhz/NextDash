@@ -27,7 +27,7 @@ const config: Config = {
       "4": "4 4 0%",
     },
     screens: {
-      md: "1222px",
+      md: "1550px",
     },
   },
   plugins: [],

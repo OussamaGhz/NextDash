@@ -2,7 +2,7 @@ import { Payment, columns } from "@/app/payment/columns";
 import { DataTable } from "@/app/payment/data-table";
 
 export default async function DemoPage() {
-  const data: Payment[] = [
+  const fetch = [
     {
       id: "728ed52f",
       amount: 100,
@@ -62,9 +62,16 @@ export default async function DemoPage() {
     // Add more entries as needed
   ];
 
+  const data: Payment[] = fetch.map((element) => {
+    return {
+      ...element,
+      amount: `$${element.amount}`,
+    };
+  });
+
   return (
     <div className="container mx-auto overflow--scroll bg-bgSoft rounded-lg p-2">
-      <DataTable columns={columns} data={data}/>
+      <DataTable columns={columns} data={data} />
     </div>
   );
 }

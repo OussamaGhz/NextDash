@@ -9,7 +9,7 @@ const DashboardPage = () => {
       {/* Ensures the content takes at least the full height of the viewport */}
       <div className="flex-grow grid grid-cols-1 md:grid-cols-10 gap-4 py-4">
         {/* Left Section */}
-        <div className="md:col-span-8 space-y-4">
+        <div className="md:col-span-10 space-y-4">
           {/* Row 1: Data Containers */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[1, 2, 3].map((index) => (
@@ -24,17 +24,7 @@ const DashboardPage = () => {
           <Chart/>
         </div>
 
-        {/* Right Section */}
-        <div className="md:col-span-2 space-y-4">
-          {/* Image Container 1 */}
-          <div className="bg-bgSoft p-2 flex justify-center items-center min-h-[100px] rounded-lg shadow">
-            {/* Placeholder for Image 1 */}
-          </div>
-          {/* Image Container 2 */}
-          <div className="bg-bgSoft p-2 flex justify-center items-center min-h-[100px] rounded-lg shadow">
-            {/* Placeholder for Image 2 */}
-          </div>
-        </div>
+      
       </div>
     </div>
   );

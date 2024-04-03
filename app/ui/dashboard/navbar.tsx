@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <div className="shadow-sm bg-bgSoft rounded-lg">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto ">
         <div className="flex justify-between flex-row-reverse md:flex-row items-center py-3 md:space-x-10 transition-all duration-500 ease-in-out">
           {/* Hamburger Menu Button for small screens */}
           <div className="md:hidden">
@@ -34,8 +34,11 @@ const Navbar = () => {
 
           {/* Search input and links for medium and larger screens */}
           <div className="hidden md:flex items-center justify-between flex-1 md:flex-1 lg:w-0">
-            <div className="w-full max-w-xs">
-              <div className="relative">
+              <div className="w-full max-w-xs">
+              
+              </div>
+            <div className="flex items-center ml-10 space-x-4">
+            <div className="relative">
                 <SearchIcon className="h-5 w-5 text-gray-500 absolute inset-y-0 left-0 pl-3" />
                 <input
                   id="search"
@@ -45,8 +48,6 @@ const Navbar = () => {
                   placeholder="Search"
                 />
               </div>
-            </div>
-            <div className="flex items-center ml-10 space-x-4">
               <a href="#" className="text-white hover:text-gray-200 transition-colors duration-300 ease-in-out">
                 <ChatBubbleLeftIcon className="h-6 w-6" />
               </a>
