@@ -7,7 +7,7 @@ import {
   flexRender,
   getCoreRowModel,
   SortingState,
-  ColumnFiltersState, 
+  ColumnFiltersState,
   getPaginationRowModel,
   getFilteredRowModel,
   getSortedRowModel,
@@ -25,6 +25,7 @@ import {
 
 import { Button } from "@/components/ui/button"; // Ensure this component is implemented as needed
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 // Assuming the UserData interface and columns are defined elsewhere and imported here
 
 interface DataTableProps<TData> {
@@ -54,14 +55,14 @@ export function UsersDataTable({ columns, data }: DataTableProps<ProductData>) {
 
   return (
     <div>
-      <div className="flex items-center py-4 bg-inherit">
+      <div className="flex items-center py-4 bg-inherit justify-between mx-24">
         <Input
-          placeholder="Filter titles..."
+          placeholder="Filter products..."
           value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
           }
-          className="w-40 text-bg  bg-white rounded-full border-none mx-10 h-1/2 placeholder:text-black"
+          className="w-40 text-bg  bg-white rounded-full border-none h-1/2 placeholder:text-black"
         />
       </div>
       <div className="rounded-md overflow-hidden">
@@ -70,7 +71,7 @@ export function UsersDataTable({ columns, data }: DataTableProps<ProductData>) {
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className="text-center"> 
+                  <TableHead key={header.id} className="text-center">
                     {header.isPlaceholder
                       ? null
                       : flexRender(
