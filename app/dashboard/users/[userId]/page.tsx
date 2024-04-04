@@ -12,7 +12,7 @@ const UserPage = ({
   };
 }) => {
   return (
-    <div className="flex bg-bg h-full w-full justify-between flex-col md:flex-row gap-5">
+    <div className="container flex bg-bg h-full w-full justify-between flex-col md:flex-row gap-5">
       <Card className=" w-1/4 h-1/2 rounded-lg p-2 bg-red-600">
         <AspectRatio ratio={3/3}/>
       </Card>

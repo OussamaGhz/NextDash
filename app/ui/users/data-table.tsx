@@ -25,6 +25,7 @@ import {
 
 import { Button } from "@/components/ui/button"; // Ensure this component is implemented as needed
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 // Assuming the UserData interface and columns are defined elsewhere and imported here
 
 interface DataTableProps<TData> {
@@ -54,15 +55,20 @@ export function UsersDataTable({ columns, data }: DataTableProps<UserData>) {
 
   return (
     <div>
-      <div className="flex items-center py-4 bg-inherit">
+      <div className="flex items-center py-4 bg-inherit justify-between mx-24">
         <Input
           placeholder="Filter emails..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)
           }
-          className="w-40 text-bg  bg-white rounded-full border-none mx-10 h-1/2 placeholder:text-black"
+          className="w-40 text-bg  bg-white rounded-full border-none h-1/2 placeholder:text-black"
         />
+        <Button>
+          <Link href="/dashboard/users/newuser">
+          Add User
+          </Link>
+        </Button>
       </div>
       <div className="rounded-md overflow-hidden">
         <Table>
