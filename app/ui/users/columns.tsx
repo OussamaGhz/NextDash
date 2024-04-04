@@ -9,9 +9,10 @@ export type UserData = {
   email: string;
   username: string;
   createdAt: string; // Assuming you want to store dates as Date objects
-  role: string;
+  role: string; 
   // Actions are not included here as they don't represent data coming from your data source but rather functionalities you'll implement in the UI
 };
+
 
 export const columns: ColumnDef<UserData>[] = [
   {
@@ -54,7 +55,7 @@ export const columns: ColumnDef<UserData>[] = [
               ? "bg-green-500 text-white"
               : info.getValue() === "moderator"
               ? "bg-blue-500 text-white"
-              : "bg-gray-500 text-white"
+              : "bg-gray-500 text-white" 
           }`}
         >
           {info.getValue() && typeof info.getValue() === "string"

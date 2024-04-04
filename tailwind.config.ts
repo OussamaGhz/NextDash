@@ -27,6 +27,7 @@ const config: Config = {
       "4": "4 4 0%",
     },
     screens: {
+      sm: "640px",
       md: "1300px",
     },
   },

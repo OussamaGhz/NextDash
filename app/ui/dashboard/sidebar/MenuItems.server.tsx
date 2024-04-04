@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import Link from "next/link";
-import { log } from "console";
 
 interface MenuItemProps {
   item: ItemProps;
