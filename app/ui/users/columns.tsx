@@ -2,17 +2,18 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import React from "react";
-import { ArrowUpDown, MoreHorizontal, View, Delete } from "lucide-react";
+import { ArrowUpDown, View, Delete } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+import { useRouter } from "next/navigation";
 
 export type UserData = {
   email: string;
   username: string;
   createdAt: string; // Assuming you want to store dates as Date objects
-  role: string; 
+  role: string;
   // Actions are not included here as they don't represent data coming from your data source but rather functionalities you'll implement in the UI
 };
-
 
 export const columns: ColumnDef<UserData>[] = [
   {
@@ -39,7 +40,9 @@ export const columns: ColumnDef<UserData>[] = [
     //format data dd/mm/yy
     cell: (info) => {
       const date = new Date(info.getValue() as string);
-      const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+      const formattedDate = `${date.getDate()}/${
+        date.getMonth() + 1
+      }/${date.getFullYear()}`;
       return <div>{formattedDate}</div>;
     },
   },
@@ -47,7 +50,6 @@ export const columns: ColumnDef<UserData>[] = [
     accessorKey: "role",
     header: "Role",
     cell: (info) => {
-      
       return (
         <div
           className={`px-2 py-1 rounded-full font-bold flex items-center justify-center ${
@@ -55,11 +57,12 @@ export const columns: ColumnDef<UserData>[] = [
               ? "bg-green-500 text-white"
               : info.getValue() === "moderator"
               ? "bg-blue-500 text-white"
-              : "bg-gray-500 text-white" 
+              : "bg-gray-500 text-white"
           }`}
         >
           {info.getValue() && typeof info.getValue() === "string"
-            ? (info.getValue().toString().charAt(0).toUpperCase() + info.getValue().toString().slice(1))
+            ? (info.getValue() as string).charAt(0).toUpperCase() +
+              (info.getValue() as string).slice(1)
             : ""}
         </div>
       );
@@ -68,34 +71,37 @@ export const columns: ColumnDef<UserData>[] = [
   {
     id: "actions",
     header: "Actions",
-    cell: ({ row }) => (
-      <div className="flex space-x-2  ">
-        {/* View Button with Icon */}
-        <Button
-          onClick={() => viewUser(row.original)}
-          className="bg-inherit px-4 py-3" // Example: Add custom classes for further styling if needed
-        >
-          <View className="mr-2" /> View
-        </Button>
+    cell: ({ row }) => {
+      const route = useRouter();
 
-        {/* Delete Button with Icon */}
-        <Button
-          onClick={() => deleteUser(row.original)}
-          variant="destructive"
-          className="bg-inherit px-4 py-3" // Example: Add custom classes for further styling if needed
-        >
-          <Delete className="mr-2" /> Delete
-        </Button>
-      </div>
-    ),
+      return (
+        <div className="flex space-x-2  ">
+          {/* View Button with Icon */}
+          <Button
+            onClick={() => {
+              console.log("Viewing user:", row.original);
+              
+              route.push(`/dashboard/users/${row.original.username}`);
+            }}
+            className="bg-inherit px-4 py-3" // Example: Add custom classes for further styling if needed
+          >
+            <View className="mr-2" /> View
+          </Button>
+
+          {/* Delete Button with Icon */}
+          <Button
+            onClick={() => deleteUser(row.original)}
+            variant="destructive"
+            className="bg-inherit px-4 py-3" // Example: Add custom classes for further styling if needed
+          >
+            <Delete className="mr-2" /> Delete
+          </Button>
+        </div>
+      );
+    },
   },
 ];
 
-// Dummy functions for view and delete actions
-function viewUser(user: UserData) {
-  console.log("Viewing user:", user);
-  // Implement view logic here
-}
 
 function deleteUser(user: UserData) {
   console.log("Deleting user:", user);

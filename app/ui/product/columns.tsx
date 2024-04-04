@@ -5,7 +5,6 @@ import React from "react";
 import { ArrowUpDown, MoreHorizontal, View, Delete } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-
 export type ProductData = {
   title: string;
   descreption: string;
@@ -13,10 +12,6 @@ export type ProductData = {
   createdAt: string;
   stock: number;
 };
-
-
-
-
 
 export const columns: ColumnDef<ProductData>[] = [
   {
@@ -43,14 +38,16 @@ export const columns: ColumnDef<ProductData>[] = [
     //format data dd/mm/yy
     cell: (info) => {
       const date = new Date(info.getValue() as string);
-      const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+      const formattedDate = `${date.getDate()}/${
+        date.getMonth() + 1
+      }/${date.getFullYear()}`;
       return <div>{formattedDate}</div>;
     },
   },
   {
     accessorKey: "price",
     header: "Price",
-    cell: (info) => (info.getValue())
+    cell: (info) => info.getValue(),
   },
   {
     accessorKey: "stock",
@@ -59,14 +56,14 @@ export const columns: ColumnDef<ProductData>[] = [
       return (
         <div
           className={`px-2 py-1 rounded-full font-bold flex items-center justify-center ${
-            info.getValue() < 10
+            (info.getValue() as number) < 10
               ? "bg-red-500 text-white"
-              : info.getValue() < 20
+              : (info.getValue() as number) < 20
               ? "bg-yellow-500 text-white"
               : "bg-green-500 text-white"
           }`}
         >
-          {info.getValue()}
+          {info.getValue() as string}
         </div>
       );
     },
@@ -76,7 +73,6 @@ export const columns: ColumnDef<ProductData>[] = [
     accessorKey: "role",
     header: "Role",
     cell: (info) => {
-      
       return (
         <div
           className={`px-2 py-1 rounded-full font-bold flex items-center justify-center ${
@@ -84,11 +80,12 @@ export const columns: ColumnDef<ProductData>[] = [
               ? "bg-green-500 text-white"
               : info.getValue() === "moderator"
               ? "bg-blue-500 text-white"
-              : "bg-gray-500 text-white" 
+              : "bg-gray-500 text-white"
           }`}
         >
           {info.getValue() && typeof info.getValue() === "string"
-            ? (info.getValue().toString().charAt(0).toUpperCase() + info.getValue().toString().slice(1))
+            ? (info.getValue() as string).charAt(0).toUpperCase() +
+              (info.getValue() as string).slice(1)
             : ""}
         </div>
       );
