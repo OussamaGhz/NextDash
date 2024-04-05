@@ -10,9 +10,8 @@ import { useRouter } from "next/navigation";
 export type UserData = {
   email: string;
   username: string;
-  createdAt: string; // Assuming you want to store dates as Date objects
+  createdAt: string; 
   role: string;
-  // Actions are not included here as they don't represent data coming from your data source but rather functionalities you'll implement in the UI
 };
 
 export const columns: ColumnDef<UserData>[] = [
