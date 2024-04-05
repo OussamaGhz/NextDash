@@ -1,8 +1,15 @@
 import Container from "@/app/ui/container";
 import { UserData, columns } from "@/app/ui/users/columns";
 import { UsersDataTable } from "@/app/ui/users/data-table";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export default async function DemoPage() {
+
+  // const users: UserData[] = await prisma.user.findMany();
+  // console.log(users);
+  
   const userData: UserData[] = [
     {
       email: "tnguyen@mahoney.org",
