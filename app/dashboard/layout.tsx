@@ -1,14 +1,12 @@
 import React, { Children } from "react";
 import Navbar from "../ui/dashboard/navbar";
 import SideBar from "../ui/dashboard/sidebar/sidebar";
+
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-
-
-  
 
   return (
     <div className="flex">
